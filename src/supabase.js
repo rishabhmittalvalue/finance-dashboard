@@ -21,8 +21,14 @@ export async function loadBofaSettings() {
   const { data } = await supabase.from('bofa_settings').select('*').single();
   return data;
 }
-export async function saveBofaSettings(settings) {
-  await supabase.from('bofa_settings').upsert({ id: 1, ...settings });
+export async function saveBofaSettings(minBalance) {
+  // Column in Supabase is 'minimum_balance' (not 'min_balance')
+  const existing = await supabase.from('bofa_settings').select('id').single();
+  if (existing.data?.id) {
+    await supabase.from('bofa_settings').update({ minimum_balance: minBalance }).eq('id', existing.data.id);
+  } else {
+    await supabase.from('bofa_settings').insert({ minimum_balance: minBalance });
+  }
 }
 export async function loadOverallBudget() {
   const { data } = await supabase.from('overall_budget').select('*').single();
@@ -49,4 +55,16 @@ export async function loadTransactionNotes() {
 }
 export async function saveTransactionNote(transactionId, note) {
   await supabase.from('transaction_notes').upsert({ transaction_id: transactionId, note }, { onConflict: 'transaction_id' });
+}
+export async function loadOverviewNote() {
+  const { data } = await supabase.from('ui_preferences').select('value').eq('key', 'overview_note').single();
+  return data?.value || '';
+}
+export async function saveOverviewNote(note) {
+  const { data } = await supabase.from('ui_preferences').select('id').eq('key', 'overview_note').single();
+  if (data?.id) {
+    await supabase.from('ui_preferences').update({ value: note }).eq('id', data.id);
+  } else {
+    await supabase.from('ui_preferences').insert({ key: 'overview_note', value: note });
+  }
 }
