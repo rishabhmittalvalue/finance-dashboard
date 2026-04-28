@@ -70,39 +70,69 @@ const isRecur = t => RECURRING_KW.some(k=>t.merchant.toLowerCase().includes(k))|
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
 body{background:#F0F4FA;font-family:'DM Sans',sans-serif;color:#1E293B;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
-.card{background:#FFFFFF;border:1px solid #E8EDF5;border-radius:18px;transition:border-color 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.card{background:#fff;border:1px solid #E8EDF5;border-radius:16px;transition:border-color 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
 .card:hover{border-color:#D1DCF0;box-shadow:0 4px 16px rgba(0,0,0,0.07)}
-.tab-btn{padding:15px 8px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#64748B;transition:all 0.2s;white-space:nowrap}
+.tab-btn{padding:14px 6px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#64748B;transition:all 0.2s;white-space:nowrap}
 .tab-btn.active{color:#3B82F6;border-bottom-color:#3B82F6;font-weight:700}
 .tab-btn:hover:not(.active){color:#475569}
-.inp{padding:9px 13px;border-radius:10px;border:1px solid #E2E8F0;background:#F8FAFC;font-family:'DM Sans',sans-serif;font-size:13px;color:#1E293B;outline:none;transition:border-color 0.2s,background 0.2s}
+.inp{padding:9px 13px;border-radius:10px;border:1px solid #E2E8F0;background:#F8FAFC;font-family:'DM Sans',sans-serif;font-size:13px;color:#1E293B;outline:none;transition:border-color 0.2s,background 0.2s;width:100%}
 .inp:focus{border-color:#93C5FD;background:#fff}
 .inp::placeholder{color:#94A3B8}
 .inp option{background:#fff;color:#1E293B}
-.btn-p{padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;background:linear-gradient(135deg,#3B82F6,#6366F1);color:#fff;box-shadow:0 4px 14px rgba(59,130,246,0.22);transition:opacity 0.2s,transform 0.1s}
+.btn-p{padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;background:linear-gradient(135deg,#3B82F6,#6366F1);color:#fff;box-shadow:0 4px 14px rgba(59,130,246,0.22);transition:opacity 0.2s,transform 0.1s;white-space:nowrap}
 .btn-p:hover{opacity:0.88;transform:translateY(-1px)}
-.btn-g{padding:8px 14px;border-radius:10px;border:1px solid #E2E8F0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;background:#F8FAFC;color:#64748B;transition:all 0.2s}
+.btn-g{padding:8px 14px;border-radius:10px;border:1px solid #E2E8F0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;background:#F8FAFC;color:#64748B;transition:all 0.2s;white-space:nowrap}
 .btn-g:hover{border-color:#CBD5E1;color:#475569;background:#F1F5F9}
-.btn-d{padding:5px 10px;border-radius:7px;border:none;cursor:pointer;font-size:11px;font-weight:600;background:#FEF2F2;color:#EF4444;transition:all 0.2s}
+.btn-d{padding:5px 10px;border-radius:7px;border:none;cursor:pointer;font-size:11px;font-weight:600;background:#FEF2F2;color:#EF4444;transition:all 0.2s;white-space:nowrap}
 .btn-d:hover{background:#FEE2E2}
 .mono{font-family:'DM Mono',monospace}
 .sec-title{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:16px}
 .pbar{height:5px;border-radius:99px;background:#EFF6FF;overflow:hidden}
 .pbar-fill{height:100%;border-radius:99px;transition:width 0.6s cubic-bezier(0.4,0,0.2,1)}
-.tx-grid{display:grid;grid-template-columns:95px 1fr 90px 75px 130px 95px 1fr;align-items:center}
+
+/* Transaction table — scrollable on mobile */
+.tx-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tx-grid{display:grid;grid-template-columns:90px minmax(120px,1fr) 80px 65px 110px 90px minmax(100px,1fr);align-items:center;min-width:680px}
 .tx-row{border-bottom:1px solid #F1F5F9;transition:background 0.12s}
 .tx-row:hover{background:#F8FAFF}
-.tx-row > div{padding:11px 14px;font-size:13px}
-.tx-head > div{padding:9px 14px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;cursor:pointer}
-.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,0.4);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:200}
-.modal{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:30px;width:460px;box-shadow:0 24px 60px rgba(0,0,0,0.12)}
+.tx-row > div{padding:11px 12px;font-size:13px}
+.tx-head > div{padding:9px 12px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;cursor:pointer}
+
+.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,0.4);backdrop-filter:blur(8px);display:flex;align-items:flex-end;justify-content:center;z-index:200;padding:0}
+@media(min-width:600px){.modal-bg{align-items:center;padding:20px}}
+.modal{background:#fff;border:1px solid #E2E8F0;border-radius:20px 20px 0 0;padding:24px 20px;width:100%;max-width:480px;box-shadow:0 -8px 40px rgba(0,0,0,0.12)}
+@media(min-width:600px){.modal{border-radius:20px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,0.12)}}
+
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .anim{animation:fadeUp 0.28s ease forwards}
 .stat-row{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border-radius:10px;background:#F8FAFC;border:1px solid #EEF2FF;margin-bottom:7px}
+
+/* Responsive grid helpers */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid-1-1{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
+.period-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:700px){
+  .grid-2{grid-template-columns:1fr}
+  .grid-1-1{grid-template-columns:1fr}
+  .period-stats{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:400px){
+  .period-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Page padding */
+.page-wrap{padding:16px;max-width:1400px;margin:0 auto}
+@media(min-width:600px){.page-wrap{padding:20px 24px}}
+@media(min-width:900px){.page-wrap{padding:28px 32px}}
+
+/* Topbar logo hide label on tiny screens */
+.logo-label{display:none}
+@media(min-width:480px){.logo-label{display:inline}}
 `;
 
 function MB({method}) {
@@ -131,7 +161,7 @@ function PBar({value,max,color='#60A5FA'}) {
 export default function App() {
   useEffect(()=>{const s=document.createElement('style');s.textContent=CSS;document.head.appendChild(s);return()=>document.head.removeChild(s);},[]);
 
-  const [tab,setTab]=useState('overview');
+  const [tab,setTab]=useState(()=>localStorage.getItem('f_tab')||'overview');
   const [txns,setTxns]=useState([]);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState('');
@@ -143,14 +173,14 @@ export default function App() {
   const [notes,setNotes]=useState({});
   const [overviewNote,setOverviewNote]=useState('');
   const [savingNote,setSavingNote]=useState(false);
-  const [dateFrom,setDateFrom]=useState('');
-  const [dateTo,setDateTo]=useState('');
-  const [fCat,setFCat]=useState('All');
-  const [fMethod,setFMethod]=useState('All');
-  const [search,setSearch]=useState('');
-  const [drillCat,setDrillCat]=useState(null);
-  const [sortCol,setSortCol]=useState('date');
-  const [sortDir,setSortDir]=useState('desc');
+  const [dateFrom,setDateFrom]=useState(()=>localStorage.getItem('f_dateFrom')||'');
+  const [dateTo,setDateTo]=useState(()=>localStorage.getItem('f_dateTo')||'');
+  const [fCat,setFCat]=useState(()=>localStorage.getItem('f_cat')||'All');
+  const [fMethod,setFMethod]=useState(()=>localStorage.getItem('f_method')||'All');
+  const [search,setSearch]=useState(()=>localStorage.getItem('f_search')||'');
+  const [drillCat,setDrillCat]=useState(()=>localStorage.getItem('f_drillCat')||null);
+  const [sortCol,setSortCol]=useState(()=>localStorage.getItem('f_sortCol')||'date');
+  const [sortDir,setSortDir]=useState(()=>localStorage.getItem('f_sortDir')||'desc');
   const [page,setPage]=useState(1);
   const [showModal,setShowModal]=useState(false);
   const [editPeriod,setEditPeriod]=useState(null);
@@ -176,6 +206,17 @@ export default function App() {
       setPeriods(p);if(s?.minimum_balance!=null)setMinBal(s.minimum_balance);setOvBudget(ob);setCatBudgets(cb);setNotes(n);setOverviewNote(on||'');
     })();
   },[]);
+
+  // Persist filters to localStorage on every change
+  useEffect(()=>{localStorage.setItem('f_tab',tab);},[tab]);
+  useEffect(()=>{localStorage.setItem('f_dateFrom',dateFrom);},[dateFrom]);
+  useEffect(()=>{localStorage.setItem('f_dateTo',dateTo);},[dateTo]);
+  useEffect(()=>{localStorage.setItem('f_cat',fCat);},[fCat]);
+  useEffect(()=>{localStorage.setItem('f_method',fMethod);},[fMethod]);
+  useEffect(()=>{localStorage.setItem('f_search',search);},[search]);
+  useEffect(()=>{if(drillCat)localStorage.setItem('f_drillCat',drillCat);else localStorage.removeItem('f_drillCat');},[drillCat]);
+  useEffect(()=>{localStorage.setItem('f_sortCol',sortCol);},[sortCol]);
+  useEffect(()=>{localStorage.setItem('f_sortDir',sortDir);},[sortDir]);
 
   const incomes   = useMemo(()=>txns.filter(t=>t.isIncome),[txns]);
   const transfers = useMemo(()=>txns.filter(t=>t.isTransfer),[txns]);
@@ -247,10 +288,10 @@ export default function App() {
   return (
     <div style={{minHeight:'100vh',background:'#F0F4FA'}}>
       {/* Topbar */}
-      <div style={{background:'rgba(255,255,255,0.92)',borderBottom:'1px solid #E8EDF5',padding:'0 32px',display:'flex',alignItems:'center',gap:4,position:'sticky',top:0,zIndex:100,backdropFilter:'blur(20px)',boxShadow:'0 1px 8px rgba(0,0,0,0.06)'}}>
+      <div style={{background:'rgba(255,255,255,0.92)',borderBottom:'1px solid #E8EDF5',padding:'0 16px',display:'flex',alignItems:'center',gap:4,position:'sticky',top:0,zIndex:100,backdropFilter:'blur(20px)',boxShadow:'0 1px 8px rgba(0,0,0,0.06)'}}>
         <div style={{display:'flex',alignItems:'center',gap:10,marginRight:24,padding:'14px 0'}}>
           <div style={{width:30,height:30,borderRadius:9,background:'linear-gradient(135deg,#3B82F6,#6366F1)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:15,boxShadow:'0 4px 12px rgba(99,102,241,0.35)'}}>💰</div>
-          <span style={{fontSize:14,fontWeight:700,color:'#1E293B',letterSpacing:'-0.02em'}}>MyFinance</span>
+          <span className="logo-label" style={{fontSize:14,fontWeight:700,color:'#1E293B',letterSpacing:'-0.02em'}}>MyFinance</span>
         </div>
         {[['overview','Overview'],['tracker','Pay Periods']].map(([t,l])=>(
           <button key={t} className={`tab-btn${tab===t?' active':''}`} onClick={()=>setTab(t)}>{l}</button>
@@ -261,17 +302,17 @@ export default function App() {
         </div>
       </div>
 
-      {error&&<div style={{background:'rgba(239,68,68,0.08)',borderBottom:'1px solid rgba(239,68,68,0.15)',color:'#F87171',padding:'10px 32px',fontSize:13}}>{error}</div>}
+      {error&&<div style={{background:'rgba(239,68,68,0.08)',borderBottom:'1px solid rgba(239,68,68,0.15)',color:'#F87171',padding:'10px 16px',fontSize:13}}>{error}</div>}
 
-      <div style={{padding:'28px 32px',maxWidth:1400,margin:'0 auto'}}>
+      <div className="page-wrap">
 
         {/* ══ OVERVIEW ══ */}
         {tab==='overview'&&(
           <div className="anim" style={{display:'flex',flexDirection:'column',gap:20}}>
 
-            <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
+            <div className="grid-2">
               {/* BofA card */}
-              <div className="card" style={{padding:'28px 30px'}}>
+              <div className="card" style={{padding:'20px 18px'}}>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:22}}>
                   <div>
                     <div style={{fontSize:10,fontWeight:700,color:'#D97706',letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:10}}>Bank of America</div>
@@ -306,11 +347,11 @@ export default function App() {
               </div>
 
               {/* AMEX card */}
-              <div className="card" style={{padding:'28px 30px'}}>
+              <div className="card" style={{padding:'20px 18px'}}>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:22}}>
                   <div>
                     <div style={{fontSize:10,fontWeight:700,color:'#6366F1',letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:10}}>American Express</div>
-                    <div className="mono" style={{fontSize:44,fontWeight:500,color:outstandingAmex>0?'#DC2626':'#059669',letterSpacing:'-0.03em',lineHeight:1}}>{fmt(outstandingAmex)}</div>
+                    <div className="mono" style={{fontSize:'clamp(28px,6vw,44px)',fontWeight:500,color:outstandingAmex>0?'#DC2626':'#059669',letterSpacing:'-0.03em',lineHeight:1}}>{fmt(outstandingAmex)}</div>
                     <div style={{fontSize:12,color:'#94A3B8',marginTop:8}}>Outstanding card balance</div>
                   </div>
                   <div style={{width:46,height:46,borderRadius:13,background:'#EEF2FF',border:'1px solid #C7D2FE',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>💳</div>
@@ -330,7 +371,7 @@ export default function App() {
             </div>
 
             {/* Income list */}
-            <div className="card" style={{padding:'24px 28px'}}>
+            <div className="card" style={{padding:'18px 16px'}}>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16}}>
                 <div className="sec-title" style={{margin:0}}>Income Sources</div>
                 <span className="mono" style={{fontSize:13,color:'#059669'}}>{fmt(totalIncome)} · {incomes.length} entries</span>
@@ -356,7 +397,7 @@ export default function App() {
             </div>
 
             {/* Overview Note */}
-            <div className="card" style={{padding:'24px 28px'}}>
+            <div className="card" style={{padding:'18px 16px'}}>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
                 <div className="sec-title" style={{margin:0}}>Notes</div>
                 <span style={{fontSize:11,color:savingNote?'#D97706':'#94A3B8',transition:'color 0.3s'}}>{savingNote?'Saving…':'Auto-saved'}</span>
@@ -378,7 +419,7 @@ export default function App() {
           <div className="anim" style={{display:'flex',flexDirection:'column',gap:20}}>
 
             {/* Filter bar */}
-            <div className="card" style={{padding:'13px 20px',position:'sticky',top:53,zIndex:90,display:'flex',flexWrap:'wrap',alignItems:'center',gap:10,boxShadow:'0 2px 8px rgba(0,0,0,0.05)'}}>
+            <div className="card" style={{padding:'10px 14px',position:'sticky',top:53,zIndex:90,display:'flex',flexWrap:'wrap',alignItems:'center',gap:8,boxShadow:'0 2px 8px rgba(0,0,0,0.05)'}}>
               <span style={{fontSize:10,fontWeight:700,color:'#94A3B8',letterSpacing:'0.09em',textTransform:'uppercase'}}>Range</span>
               <input type="date" className="inp" value={dateFrom} onChange={e=>{setDateFrom(e.target.value);setPage(1);}}/>
               <span style={{color:'#64748B',fontSize:13}}>→</span>
@@ -408,13 +449,13 @@ export default function App() {
             </div>
 
             {/* Current period */}
-            <div style={{background:'linear-gradient(135deg,#EFF6FF 0%,#F0F7FF 60%,#EBF4FF 100%)',border:'1px solid #BFDBFE',borderRadius:20,padding:'28px 32px',position:'relative',overflow:'hidden'}}>
+            <div style={{background:'linear-gradient(135deg,#EFF6FF 0%,#F0F7FF 60%,#EBF4FF 100%)',border:'1px solid #BFDBFE',borderRadius:16,padding:'20px 18px',position:'relative',overflow:'hidden'}}>
               <div style={{position:'absolute',top:-80,right:-80,width:240,height:240,borderRadius:'50%',background:'radial-gradient(circle,rgba(59,130,246,0.08) 0%,transparent 70%)',pointerEvents:'none'}}/>
               <div style={{position:'absolute',bottom:-40,left:-40,width:160,height:160,borderRadius:'50%',background:'radial-gradient(circle,rgba(99,102,241,0.05) 0%,transparent 70%)',pointerEvents:'none'}}/>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:12,marginBottom:currentP?26:0,position:'relative'}}>
                 <div>
                   <div style={{fontSize:10,fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#2563EB',marginBottom:8}}>Current Pay Period</div>
-                  <div style={{fontSize:26,fontWeight:700,color:'#1E3A8A',letterSpacing:'-0.02em'}}>{currentP?(currentP.label||`${currentP.start_date} → ${currentP.end_date}`):'No active period'}</div>
+                  <div style={{fontSize:'clamp(18px,4vw,26px)',fontWeight:700,color:'#1E3A8A',letterSpacing:'-0.02em'}}>{currentP?(currentP.label||`${currentP.start_date} → ${currentP.end_date}`):'No active period'}</div>
                   {currentP&&<div style={{fontSize:12,color:'#60A5FA',marginTop:4}}>Day {currentP.daysPassed} of {currentP.days}</div>}
                 </div>
                 <div style={{display:'flex',gap:8}}>
@@ -424,7 +465,7 @@ export default function App() {
               </div>
               {currentP&&(
                 <>
-                  <div style={{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:24,marginBottom:22,position:'relative'}}>
+                  <div className="period-stats" style={{marginBottom:22}}>
                     {[['Budget',currentP.budget,'#2563EB'],['BofA',currentP.bofaSpend,'#D97706'],['AMEX',currentP.amexSpend,'#7C3AED'],['Total Spent',currentP.total,'#DC2626'],[currentP.saved>=0?'Saved':'Over',Math.abs(currentP.saved),currentP.saved>=0?'#059669':'#DC2626']].map(([l,v,c])=>(
                       <div key={l}>
                         <div style={{fontSize:10,color:'#6B93C9',textTransform:'uppercase',letterSpacing:'0.06em',marginBottom:7}}>{l}</div>
@@ -444,8 +485,8 @@ export default function App() {
             </div>
 
             {/* Charts */}
-            <div style={{display:'grid',gridTemplateColumns:'1.6fr 1fr',gap:20}}>
-              <div className="card" style={{padding:'24px 28px'}}>
+            <div className="grid-1-1">
+              <div className="card" style={{padding:'18px 16px'}}>
                 <div className="sec-title">Spend by Category</div>
                 {catData.length>0?(
                   <div style={{display:'flex',gap:20,alignItems:'flex-start'}}>
@@ -477,7 +518,7 @@ export default function App() {
                 {drillCat&&<button className="btn-g" onClick={()=>setDrillCat(null)} style={{width:'100%',marginTop:10,fontSize:12}}>✕ Clear: {drillCat}</button>}
               </div>
 
-              <div className="card" style={{padding:'24px 28px'}}>
+              <div className="card" style={{padding:'18px 16px'}}>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:14}}>
                   <div className="sec-title" style={{margin:0}}>Recurring</div>
                   <span className="mono" style={{fontSize:12,color:'#7C3AED'}}>{fmt(recurring.reduce((s,t)=>s+t.amount,0))}</span>
@@ -497,19 +538,19 @@ export default function App() {
             </div>
 
             {/* Period history */}
-            <div className="card" style={{padding:'24px 28px'}}>
+            <div className="card" style={{padding:'18px 16px'}}>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:18}}>
                 <div className="sec-title" style={{margin:0}}>Period History</div>
                 <button className="btn-p" onClick={()=>{setEditPeriod(null);setPForm({label:'',start_date:'',end_date:'',budget_amount:''});setShowModal(true);}}>+ New Period</button>
               </div>
               {enriched.length===0?<div style={{color:'#94A3B8',fontSize:13,textAlign:'center',padding:'32px 0'}}>No periods yet. Create your first.</div>:(
-                <div style={{overflowX:'auto'}}>
-                  <div style={{minWidth:820}}>
-                    <div style={{display:'grid',gridTemplateColumns:'1fr 100px 110px 110px 110px 120px 80px 120px',padding:'0 14px',marginBottom:6}}>
+                <div className="tx-wrap">
+                  <div style={{minWidth:720}}>
+                    <div style={{display:'grid',gridTemplateColumns:'1fr 90px 100px 100px 100px 110px 70px 110px',padding:'0 14px',marginBottom:6}}>
                       {['Period','Budget','BofA','AMEX','Total','Saved/Over','Rate',''].map(h=><div key={h} style={{fontSize:10,fontWeight:700,color:'#94A3B8',letterSpacing:'0.08em',textTransform:'uppercase',padding:'5px 8px'}}>{h}</div>)}
                     </div>
                     {enriched.map(p=>(
-                      <div key={p.id} style={{display:'grid',gridTemplateColumns:'1fr 100px 110px 110px 110px 120px 80px 120px',padding:'3px 0',borderRadius:12,background:p.isCurrent?'#EFF6FF':'transparent',border:p.isCurrent?'1px solid #BFDBFE':'1px solid transparent',marginBottom:4}}>
+                      <div key={p.id} style={{display:'grid',gridTemplateColumns:'1fr 90px 100px 100px 100px 110px 70px 110px',padding:'3px 0',borderRadius:12,background:p.isCurrent?'#EFF6FF':'transparent',border:p.isCurrent?'1px solid #BFDBFE':'1px solid transparent',marginBottom:4}}>
                         <div style={{padding:'10px 22px',display:'flex',alignItems:'center',gap:8}}>
                           <span style={{fontSize:13,fontWeight:p.isCurrent?700:400,color:p.isCurrent?'#1D4ED8':'#475569'}}>{p.label||`${p.start_date} → ${p.end_date}`}</span>
                           {p.isCurrent&&<span style={{display:'inline-block',padding:'1px 7px',borderRadius:99,fontSize:9,fontWeight:800,letterSpacing:'0.08em',textTransform:'uppercase',background:'#DBEAFE',color:'#2563EB'}}>NOW</span>}
@@ -535,7 +576,7 @@ export default function App() {
 
             {/* Savings trend */}
             {enriched.length>0&&(
-              <div className="card" style={{padding:'24px 28px'}}>
+              <div className="card" style={{padding:'18px 16px'}}>
                 <div className="sec-title">Savings Trend</div>
                 {enriched.map(p=>(
                   <div key={p.id} style={{marginBottom:14}}>
@@ -550,7 +591,7 @@ export default function App() {
             )}
 
             {/* Category budgets */}
-            <div className="card" style={{padding:'24px 28px'}}>
+            <div className="card" style={{padding:'18px 16px'}}>
               <div className="sec-title">Category Budgets</div>
               <div style={{display:'flex',gap:8,marginBottom:16,flexWrap:'wrap'}}>
                 <select className="inp" value={newBCat} onChange={e=>setNewBCat(e.target.value)}>
@@ -614,7 +655,7 @@ export default function App() {
 
             {/* Transactions */}
             <div className="card" style={{overflow:'hidden',padding:0}}>
-              <div style={{overflowX:'auto'}}>
+              <div className="tx-wrap">
                 <div className="tx-grid tx-head" style={{background:'rgba(255,255,255,0.02)',borderRadius:'18px 18px 0 0'}}>
                   {[['date','Date'],['merchant','Merchant'],['amount','Amount'],['method','Method'],['category','Category'],['subCat','Sub Cat'],['note','Note']].map(([col,label])=>(
                     <div key={col} onClick={()=>col!=='note'&&handleSort(col)} style={{cursor:col!=='note'?'pointer':'default'}}>
@@ -665,7 +706,7 @@ export default function App() {
                 <label style={{fontSize:10,color:'#94A3B8',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>Label (optional)</label>
                 <input className="inp" value={pForm.label} onChange={e=>setPForm(f=>({...f,label:e.target.value}))} placeholder="e.g. Apr 15 – Apr 30" style={{width:'100%'}}/>
               </div>
-              <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
+              <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(160px,1fr))',gap:12}}>
                 {[['Start Date','start_date'],['End Date','end_date']].map(([l,k])=>(
                   <div key={k}>
                     <label style={{fontSize:10,color:'#94A3B8',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>{l}</label>
