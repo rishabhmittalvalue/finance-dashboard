@@ -5,7 +5,6 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ─── Supabase helpers ───────────────────────────────────────────────────────
 export async function loadPayPeriods() {
   const { data } = await supabase.from('pay_periods').select('*').order('start_date', { ascending: false });
   return data || [];
