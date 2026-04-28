@@ -70,43 +70,43 @@ const isRecur = t => RECURRING_KW.some(k=>t.merchant.toLowerCase().includes(k))|
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{background:#07090F;font-family:'DM Sans',sans-serif;color:#E2E8F0;-webkit-font-smoothing:antialiased}
+body{background:#F0F4FA;font-family:'DM Sans',sans-serif;color:#1E293B;-webkit-font-smoothing:antialiased}
 ::-webkit-scrollbar{width:4px;height:4px}
 ::-webkit-scrollbar-track{background:transparent}
-::-webkit-scrollbar-thumb{background:#1E293B;border-radius:99px}
-.card{background:linear-gradient(135deg,rgba(255,255,255,0.045) 0%,rgba(255,255,255,0.02) 100%);border:1px solid rgba(255,255,255,0.07);border-radius:18px;transition:border-color 0.2s}
-.card:hover{border-color:rgba(255,255,255,0.11)}
-.tab-btn{padding:15px 8px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#475569;transition:all 0.2s;white-space:nowrap}
-.tab-btn.active{color:#60A5FA;border-bottom-color:#60A5FA;font-weight:700}
-.tab-btn:hover:not(.active){color:#94A3B8}
-.inp{padding:9px 13px;border-radius:10px;border:1px solid rgba(255,255,255,0.09);background:rgba(255,255,255,0.04);font-family:'DM Sans',sans-serif;font-size:13px;color:#E2E8F0;outline:none;transition:border-color 0.2s,background 0.2s}
-.inp:focus{border-color:rgba(96,165,250,0.45);background:rgba(255,255,255,0.06)}
-.inp::placeholder{color:#334155}
-.inp option{background:#0F172A;color:#E2E8F0}
-.btn-p{padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;background:linear-gradient(135deg,#3B82F6,#6366F1);color:#fff;box-shadow:0 4px 14px rgba(59,130,246,0.25);transition:opacity 0.2s,transform 0.1s}
+::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:99px}
+.card{background:#FFFFFF;border:1px solid #E8EDF5;border-radius:18px;transition:border-color 0.2s,box-shadow 0.2s;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.card:hover{border-color:#D1DCF0;box-shadow:0 4px 16px rgba(0,0,0,0.07)}
+.tab-btn{padding:15px 8px;background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#64748B;transition:all 0.2s;white-space:nowrap}
+.tab-btn.active{color:#3B82F6;border-bottom-color:#3B82F6;font-weight:700}
+.tab-btn:hover:not(.active){color:#475569}
+.inp{padding:9px 13px;border-radius:10px;border:1px solid #E2E8F0;background:#F8FAFC;font-family:'DM Sans',sans-serif;font-size:13px;color:#1E293B;outline:none;transition:border-color 0.2s,background 0.2s}
+.inp:focus{border-color:#93C5FD;background:#fff}
+.inp::placeholder{color:#94A3B8}
+.inp option{background:#fff;color:#1E293B}
+.btn-p{padding:9px 18px;border-radius:10px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;background:linear-gradient(135deg,#3B82F6,#6366F1);color:#fff;box-shadow:0 4px 14px rgba(59,130,246,0.22);transition:opacity 0.2s,transform 0.1s}
 .btn-p:hover{opacity:0.88;transform:translateY(-1px)}
-.btn-g{padding:8px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.09);cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;background:rgba(255,255,255,0.03);color:#64748B;transition:all 0.2s}
-.btn-g:hover{border-color:rgba(255,255,255,0.18);color:#94A3B8;background:rgba(255,255,255,0.06)}
-.btn-d{padding:5px 10px;border-radius:7px;border:none;cursor:pointer;font-size:11px;font-weight:600;background:rgba(239,68,68,0.12);color:#F87171;transition:all 0.2s}
-.btn-d:hover{background:rgba(239,68,68,0.22)}
+.btn-g{padding:8px 14px;border-radius:10px;border:1px solid #E2E8F0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;background:#F8FAFC;color:#64748B;transition:all 0.2s}
+.btn-g:hover{border-color:#CBD5E1;color:#475569;background:#F1F5F9}
+.btn-d{padding:5px 10px;border-radius:7px;border:none;cursor:pointer;font-size:11px;font-weight:600;background:#FEF2F2;color:#EF4444;transition:all 0.2s}
+.btn-d:hover{background:#FEE2E2}
 .mono{font-family:'DM Mono',monospace}
-.sec-title{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#475569;margin-bottom:16px}
-.pbar{height:5px;border-radius:99px;background:rgba(255,255,255,0.06);overflow:hidden}
+.sec-title{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#94A3B8;margin-bottom:16px}
+.pbar{height:5px;border-radius:99px;background:#EFF6FF;overflow:hidden}
 .pbar-fill{height:100%;border-radius:99px;transition:width 0.6s cubic-bezier(0.4,0,0.2,1)}
 .tx-grid{display:grid;grid-template-columns:95px 1fr 90px 75px 130px 95px 1fr;align-items:center}
-.tx-row{border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.12s}
-.tx-row:hover{background:rgba(255,255,255,0.025)}
+.tx-row{border-bottom:1px solid #F1F5F9;transition:background 0.12s}
+.tx-row:hover{background:#F8FAFF}
 .tx-row > div{padding:11px 14px;font-size:13px}
-.tx-head > div{padding:9px 14px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#334155;cursor:pointer}
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;z-index:200}
-.modal{background:#0C1525;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:30px;width:460px;box-shadow:0 40px 80px rgba(0,0,0,0.6)}
+.tx-head > div{padding:9px 14px;font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;cursor:pointer}
+.modal-bg{position:fixed;inset:0;background:rgba(15,23,42,0.4);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:200}
+.modal{background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:30px;width:460px;box-shadow:0 24px 60px rgba(0,0,0,0.12)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .anim{animation:fadeUp 0.28s ease forwards}
-.stat-row{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border-radius:10px;background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);margin-bottom:7px}
+.stat-row{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border-radius:10px;background:#F8FAFC;border:1px solid #EEF2FF;margin-bottom:7px}
 `;
 
 function MB({method}) {
-  const c={Amex:{bg:'rgba(99,102,241,0.13)',color:'#818CF8',b:'rgba(99,102,241,0.25)'},BofA:{bg:'rgba(251,191,36,0.1)',color:'#FCD34D',b:'rgba(251,191,36,0.25)'},Income:{bg:'rgba(52,211,153,0.1)',color:'#34D399',b:'rgba(52,211,153,0.25)'}}[method]||{bg:'rgba(148,163,184,0.08)',color:'#94A3B8',b:'rgba(148,163,184,0.15)'};
+  const c={Amex:{bg:'#EEF2FF',color:'#4F46E5',b:'#C7D2FE'},BofA:{bg:'#FEF3C7',color:'#B45309',b:'#FDE68A'},Income:{bg:'#ECFDF5',color:'#065F46',b:'#A7F3D0'}}[method]||{bg:'#F1F5F9',color:'#64748B',b:'#E2E8F0'};
   return <span style={{display:'inline-block',padding:'3px 9px',borderRadius:99,fontSize:11,fontWeight:700,fontFamily:"'DM Mono',monospace",background:c.bg,color:c.color,border:`1px solid ${c.b}`}}>{method}</span>;
 }
 
@@ -118,8 +118,8 @@ function CB({cat}) {
 function NoteCell({txId,note,onSave}) {
   const [e,setE]=useState(false);const [v,setV]=useState(note);
   useEffect(()=>setV(note),[note]);
-  if(e) return <div style={{display:'flex',gap:5}}><input className="inp" value={v} onChange={x=>setV(x.target.value)} onKeyDown={x=>{if(x.key==='Enter'){onSave(txId,v);setE(false);}if(x.key==='Escape')setE(false);}} style={{fontSize:12,padding:'4px 8px',width:140}} autoFocus/><button onClick={()=>{onSave(txId,v);setE(false);}} style={{background:'rgba(59,130,246,0.18)',border:'none',borderRadius:6,color:'#60A5FA',padding:'3px 8px',cursor:'pointer',fontSize:11}}>✓</button></div>;
-  return <span onClick={()=>setE(true)} style={{fontSize:12,color:note?'#94A3B8':'#334155',cursor:'pointer',borderBottom:'1px dashed rgba(255,255,255,0.08)',paddingBottom:1}}>{note||'+ note'}</span>;
+  if(e) return <div style={{display:'flex',gap:5}}><input className="inp" value={v} onChange={x=>setV(x.target.value)} onKeyDown={x=>{if(x.key==='Enter'){onSave(txId,v);setE(false);}if(x.key==='Escape')setE(false);}} style={{fontSize:12,padding:'4px 8px',width:140}} autoFocus/><button onClick={()=>{onSave(txId,v);setE(false);}} style={{background:'#EFF6FF',border:'1px solid #BFDBFE',borderRadius:6,color:'#2563EB',padding:'3px 8px',cursor:'pointer',fontSize:11}}>✓</button></div>;
+  return <span onClick={()=>setE(true)} style={{fontSize:12,color:note?'#64748B':'#CBD5E1',cursor:'pointer',borderBottom:'1px dashed #E2E8F0',paddingBottom:1}}>{note||'+ note'}</span>;
 }
 
 function PBar({value,max,color='#60A5FA'}) {
@@ -245,19 +245,19 @@ export default function App() {
   const handleSort = col=>{if(sortCol===col)setSortDir(d=>d==='asc'?'desc':'asc');else{setSortCol(col);setSortDir('desc');}setPage(1);};
 
   return (
-    <div style={{minHeight:'100vh',background:'#07090F'}}>
+    <div style={{minHeight:'100vh',background:'#F0F4FA'}}>
       {/* Topbar */}
-      <div style={{background:'rgba(7,9,15,0.92)',borderBottom:'1px solid rgba(255,255,255,0.05)',padding:'0 32px',display:'flex',alignItems:'center',gap:4,position:'sticky',top:0,zIndex:100,backdropFilter:'blur(24px)'}}>
+      <div style={{background:'rgba(255,255,255,0.92)',borderBottom:'1px solid #E8EDF5',padding:'0 32px',display:'flex',alignItems:'center',gap:4,position:'sticky',top:0,zIndex:100,backdropFilter:'blur(20px)',boxShadow:'0 1px 8px rgba(0,0,0,0.06)'}}>
         <div style={{display:'flex',alignItems:'center',gap:10,marginRight:24,padding:'14px 0'}}>
           <div style={{width:30,height:30,borderRadius:9,background:'linear-gradient(135deg,#3B82F6,#6366F1)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:15,boxShadow:'0 4px 12px rgba(99,102,241,0.35)'}}>💰</div>
-          <span style={{fontSize:14,fontWeight:700,color:'#F1F5F9',letterSpacing:'-0.02em'}}>MyFinance</span>
+          <span style={{fontSize:14,fontWeight:700,color:'#1E293B',letterSpacing:'-0.02em'}}>MyFinance</span>
         </div>
         {[['overview','Overview'],['tracker','Pay Periods']].map(([t,l])=>(
           <button key={t} className={`tab-btn${tab===t?' active':''}`} onClick={()=>setTab(t)}>{l}</button>
         ))}
         <div style={{marginLeft:'auto',display:'flex',alignItems:'center',gap:10}}>
-          {refreshed&&<span style={{fontSize:11,color:'#2D3748',fontFamily:"'DM Mono',monospace"}}>{refreshed.toLocaleTimeString()}</span>}
-          <button className="btn-g" onClick={refresh} disabled={loading} style={{fontSize:12}}>{loading?'⟳ Loading':'↻ Refresh'}</button>
+          {refreshed&&<span style={{fontSize:11,color:'#94A3B8',fontFamily:"'DM Mono',monospace"}}>{refreshed.toLocaleTimeString()}</span>}
+          <button className="btn-g" onClick={refresh} disabled={loading} style={{fontSize:12,background:'#F1F5F9',color:'#64748B',border:'1px solid #F1F5F9'}}>{loading?'⟳ Loading':'↻ Refresh'}</button>
         </div>
       </div>
 
@@ -274,11 +274,11 @@ export default function App() {
               <div className="card" style={{padding:'28px 30px'}}>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:22}}>
                   <div>
-                    <div style={{fontSize:10,fontWeight:700,color:'#FBBF24',letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:10}}>Bank of America</div>
-                    <div className="mono" style={{fontSize:44,fontWeight:500,color:bofaBalance>=0?'#F1F5F9':'#F87171',letterSpacing:'-0.03em',lineHeight:1}}>{fmt(bofaBalance)}</div>
-                    <div style={{fontSize:12,color:'#334155',marginTop:8}}>Calculated account balance</div>
+                    <div style={{fontSize:10,fontWeight:700,color:'#D97706',letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:10}}>Bank of America</div>
+                    <div className="mono" style={{fontSize:44,fontWeight:500,color:bofaBalance>=0?'#1E293B':'#DC2626',letterSpacing:'-0.03em',lineHeight:1}}>{fmt(bofaBalance)}</div>
+                    <div style={{fontSize:12,color:'#94A3B8',marginTop:8}}>Calculated account balance</div>
                   </div>
-                  <div style={{width:46,height:46,borderRadius:13,background:'rgba(251,191,36,0.09)',border:'1px solid rgba(251,191,36,0.18)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>🏦</div>
+                  <div style={{width:46,height:46,borderRadius:13,background:'#FEF3C7',border:'1px solid #FDE68A',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>🏦</div>
                 </div>
                 <div>
                   {[['+','Total Income',totalIncome,'#34D399'],['−','Direct BofA Spend',totalBofaDirect,'#F87171'],['−','Paid to AMEX',totalPaidAmex,'#FBBF24'],['−','Min Balance Reserve',minBal,'#818CF8']].map(([sign,label,value,color])=>(
@@ -288,7 +288,7 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <div style={{paddingTop:14,borderTop:'1px solid rgba(255,255,255,0.05)',marginTop:6}}>
+                <div style={{paddingTop:14,borderTop:'1px solid #F1F5F9',marginTop:6}}>
                   {editMinB?(
                     <div style={{display:'flex',gap:8,alignItems:'center'}}>
                       <span style={{fontSize:12,color:'#475569'}}>Min reserve:</span>
@@ -298,7 +298,7 @@ export default function App() {
                     </div>
                   ):(
                     <div style={{display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-                      <span style={{fontSize:12,color:'#334155'}}>Min reserve: <span className="mono" style={{color:'#818CF8'}}>{fmt(minBal)}</span></span>
+                      <span style={{fontSize:12,color:'#64748B'}}>Min reserve: <span className="mono" style={{color:'#6366F1'}}>{fmt(minBal)}</span></span>
                       <button className="btn-g" onClick={()=>{setMinBInput(String(minBal));setEditMinB(true);}} style={{fontSize:11,padding:'5px 10px'}}>Edit</button>
                     </div>
                   )}
@@ -309,11 +309,11 @@ export default function App() {
               <div className="card" style={{padding:'28px 30px'}}>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',marginBottom:22}}>
                   <div>
-                    <div style={{fontSize:10,fontWeight:700,color:'#818CF8',letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:10}}>American Express</div>
-                    <div className="mono" style={{fontSize:44,fontWeight:500,color:outstandingAmex>0?'#F87171':'#34D399',letterSpacing:'-0.03em',lineHeight:1}}>{fmt(outstandingAmex)}</div>
-                    <div style={{fontSize:12,color:'#334155',marginTop:8}}>Outstanding card balance</div>
+                    <div style={{fontSize:10,fontWeight:700,color:'#6366F1',letterSpacing:'0.12em',textTransform:'uppercase',marginBottom:10}}>American Express</div>
+                    <div className="mono" style={{fontSize:44,fontWeight:500,color:outstandingAmex>0?'#DC2626':'#059669',letterSpacing:'-0.03em',lineHeight:1}}>{fmt(outstandingAmex)}</div>
+                    <div style={{fontSize:12,color:'#94A3B8',marginTop:8}}>Outstanding card balance</div>
                   </div>
-                  <div style={{width:46,height:46,borderRadius:13,background:'rgba(129,140,248,0.09)',border:'1px solid rgba(129,140,248,0.18)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>💳</div>
+                  <div style={{width:46,height:46,borderRadius:13,background:'#EEF2FF',border:'1px solid #C7D2FE',display:'flex',alignItems:'center',justifyContent:'center',fontSize:22}}>💳</div>
                 </div>
                 <div>
                   {[['−','Total AMEX Charged',totalAmexCharged,'#F87171'],['+','Paid from BofA',totalPaidAmex,'#34D399']].map(([sign,label,value,color])=>(
@@ -323,8 +323,8 @@ export default function App() {
                     </div>
                   ))}
                 </div>
-                <div style={{marginTop:14,padding:'12px 16px',borderRadius:12,background:outstandingAmex>0?'rgba(239,68,68,0.07)':'rgba(52,211,153,0.07)',border:`1px solid ${outstandingAmex>0?'rgba(239,68,68,0.18)':'rgba(52,211,153,0.18)'}`}}>
-                  <span style={{fontSize:13,fontWeight:600,color:outstandingAmex>0?'#F87171':'#34D399'}}>{outstandingAmex>0?`⚠️  ${fmt(outstandingAmex)} still owed on AMEX`:'✅  AMEX fully paid off'}</span>
+                <div style={{marginTop:14,padding:'12px 16px',borderRadius:12,background:outstandingAmex>0?'#FEF2F2':'#F0FDF4',border:`1px solid ${outstandingAmex>0?'#FECACA':'#BBF7D0'}`}}>
+                  <span style={{fontSize:13,fontWeight:600,color:outstandingAmex>0?'#DC2626':'#059669'}}>{outstandingAmex>0?`⚠️  ${fmt(outstandingAmex)} still owed on AMEX`:'✅  AMEX fully paid off'}</span>
                 </div>
               </div>
             </div>
@@ -333,23 +333,23 @@ export default function App() {
             <div className="card" style={{padding:'24px 28px'}}>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:16}}>
                 <div className="sec-title" style={{margin:0}}>Income Sources</div>
-                <span className="mono" style={{fontSize:13,color:'#34D399'}}>{fmt(totalIncome)} · {incomes.length} entries</span>
+                <span className="mono" style={{fontSize:13,color:'#059669'}}>{fmt(totalIncome)} · {incomes.length} entries</span>
               </div>
               {incomes.length===0?(
-                <div style={{color:'#334155',fontSize:13,textAlign:'center',padding:'24px 0'}}>No income found. Add rows with Method = "Income" in your sheet.</div>
+                <div style={{color:'#94A3B8',fontSize:13,textAlign:'center',padding:'24px 0'}}>No income found. Add rows with Method = "Income" in your sheet.</div>
               ):(
                 <>
                   {incomes.map(t=>(
-                    <div key={t.id} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'10px 14px',borderRadius:10,marginBottom:5,background:'rgba(255,255,255,0.02)',border:'1px solid rgba(255,255,255,0.04)'}}>
+                    <div key={t.id} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'10px 14px',borderRadius:10,marginBottom:5,background:'#F8FAFC',border:'1px solid #EEF2FF'}}>
                       <div style={{display:'flex',alignItems:'center',gap:14}}>
-                        <span className="mono" style={{fontSize:11,color:'#334155',width:88}}>{t.date}</span>
-                        <span style={{fontSize:13,fontWeight:500,color:'#CBD5E1'}}>{t.merchant}</span>
+                        <span className="mono" style={{fontSize:11,color:'#94A3B8',width:88}}>{t.date}</span>
+                        <span style={{fontSize:13,fontWeight:500,color:'#1E293B'}}>{t.merchant}</span>
                       </div>
-                      <span className="mono" style={{fontSize:14,fontWeight:500,color:'#34D399'}}>{fmt(t.amount)}</span>
+                      <span className="mono" style={{fontSize:14,fontWeight:500,color:'#059669'}}>{fmt(t.amount)}</span>
                     </div>
                   ))}
-                  <div style={{display:'flex',justifyContent:'flex-end',padding:'10px 14px',borderTop:'1px solid rgba(255,255,255,0.05)',marginTop:4}}>
-                    <span className="mono" style={{fontSize:15,fontWeight:600,color:'#34D399'}}>{fmt(totalIncome)}</span>
+                  <div style={{display:'flex',justifyContent:'flex-end',padding:'10px 14px',borderTop:'1px solid #F1F5F9',marginTop:4}}>
+                    <span className="mono" style={{fontSize:15,fontWeight:600,color:'#059669'}}>{fmt(totalIncome)}</span>
                   </div>
                 </>
               )}
@@ -359,15 +359,15 @@ export default function App() {
             <div className="card" style={{padding:'24px 28px'}}>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:12}}>
                 <div className="sec-title" style={{margin:0}}>Notes</div>
-                <span style={{fontSize:11,color:savingNote?'#FBBF24':'#334155',transition:'color 0.3s'}}>{savingNote?'Saving…':'Auto-saved'}</span>
+                <span style={{fontSize:11,color:savingNote?'#D97706':'#94A3B8',transition:'color 0.3s'}}>{savingNote?'Saving…':'Auto-saved'}</span>
               </div>
               <textarea
                 value={overviewNote}
                 onChange={e=>handleOverviewNote(e.target.value)}
                 placeholder="Add notes about your finances, goals, reminders…"
-                style={{width:'100%',minHeight:120,background:'rgba(255,255,255,0.03)',border:'1px solid rgba(255,255,255,0.08)',borderRadius:12,padding:'14px 16px',fontSize:13,color:'#CBD5E1',fontFamily:"'DM Sans',sans-serif",resize:'vertical',outline:'none',lineHeight:1.6,transition:'border-color 0.2s'}}
-                onFocus={e=>e.target.style.borderColor='rgba(96,165,250,0.4)'}
-                onBlur={e=>e.target.style.borderColor='rgba(255,255,255,0.08)'}
+                style={{width:'100%',minHeight:120,background:'#F8FAFC',border:'1px solid #E2E8F0',borderRadius:12,padding:'14px 16px',fontSize:13,color:'#1E293B',fontFamily:"'DM Sans',sans-serif",resize:'vertical',outline:'none',lineHeight:1.6,transition:'border-color 0.2s'}}
+                onFocus={e=>e.target.style.borderColor='#93C5FD'}
+                onBlur={e=>e.target.style.borderColor='#E2E8F0'}
               />
             </div>
           </div>
@@ -378,21 +378,21 @@ export default function App() {
           <div className="anim" style={{display:'flex',flexDirection:'column',gap:20}}>
 
             {/* Filter bar */}
-            <div className="card" style={{padding:'13px 20px',position:'sticky',top:53,zIndex:90,display:'flex',flexWrap:'wrap',alignItems:'center',gap:10}}>
-              <span style={{fontSize:10,fontWeight:700,color:'#334155',letterSpacing:'0.09em',textTransform:'uppercase'}}>Range</span>
+            <div className="card" style={{padding:'13px 20px',position:'sticky',top:53,zIndex:90,display:'flex',flexWrap:'wrap',alignItems:'center',gap:10,boxShadow:'0 2px 8px rgba(0,0,0,0.05)'}}>
+              <span style={{fontSize:10,fontWeight:700,color:'#94A3B8',letterSpacing:'0.09em',textTransform:'uppercase'}}>Range</span>
               <input type="date" className="inp" value={dateFrom} onChange={e=>{setDateFrom(e.target.value);setPage(1);}}/>
-              <span style={{color:'#334155',fontSize:13}}>→</span>
+              <span style={{color:'#64748B',fontSize:13}}>→</span>
               <input type="date" className="inp" value={dateTo} onChange={e=>{setDateTo(e.target.value);setPage(1);}}/>
               {(dateFrom||dateTo)&&<button className="btn-g" onClick={()=>{setDateFrom('');setDateTo('');setPage(1);}}>✕</button>}
-              {(dateFrom||dateTo)&&<span className="mono" style={{fontSize:12,color:'#60A5FA'}}>{sorted.length} txns · {fmt(totalSpend)}</span>}
+              {(dateFrom||dateTo)&&<span className="mono" style={{fontSize:12,color:'#3B82F6'}}>{sorted.length} txns · {fmt(totalSpend)}</span>}
               <div style={{marginLeft:'auto',display:'flex',alignItems:'center',gap:10}}>
                 {ovBudget?(
                   <div style={{display:'flex',alignItems:'center',gap:9}}>
-                    <span style={{fontSize:12,color:'#475569'}}>Budget <span className="mono" style={{color:'#E2E8F0'}}>{fmt(ovBudget)}</span></span>
+                    <span style={{fontSize:12,color:'#64748B'}}>Budget <span className="mono" style={{color:'#1E293B'}}>{fmt(ovBudget)}</span></span>
                     <div style={{width:80,height:4,borderRadius:99,background:'rgba(255,255,255,0.07)',overflow:'hidden'}}>
                       <div style={{height:'100%',width:`${Math.min(100,totalFilt/ovBudget*100)}%`,background:totalFilt>ovBudget?'#F87171':totalFilt/ovBudget>0.8?'#FBBF24':'#34D399',borderRadius:99,transition:'width 0.5s'}}/>
                     </div>
-                    <span className="mono" style={{fontSize:11,color:totalFilt>ovBudget?'#F87171':'#34D399'}}>{fmt(Math.abs(ovBudget-totalFilt))} {totalFilt>ovBudget?'over':'left'}</span>
+                    <span className="mono" style={{fontSize:11,color:totalFilt>ovBudget?'#DC2626':'#059669'}}>{fmt(Math.abs(ovBudget-totalFilt))} {totalFilt>ovBudget?'over':'left'}</span>
                     <button className="btn-g" onClick={()=>{setOvBInput(String(ovBudget));setEditOvB(true);}} style={{fontSize:11,padding:'5px 9px'}}>Edit</button>
                   </div>
                 ):editOvB?(
@@ -408,32 +408,32 @@ export default function App() {
             </div>
 
             {/* Current period */}
-            <div style={{background:'linear-gradient(135deg,#0C1E3D 0%,#111E3A 60%,#0A1830 100%)',border:'1px solid rgba(96,165,250,0.12)',borderRadius:20,padding:'28px 32px',position:'relative',overflow:'hidden'}}>
-              <div style={{position:'absolute',top:-80,right:-80,width:240,height:240,borderRadius:'50%',background:'radial-gradient(circle,rgba(59,130,246,0.1) 0%,transparent 70%)',pointerEvents:'none'}}/>
-              <div style={{position:'absolute',bottom:-40,left:-40,width:160,height:160,borderRadius:'50%',background:'radial-gradient(circle,rgba(99,102,241,0.07) 0%,transparent 70%)',pointerEvents:'none'}}/>
+            <div style={{background:'linear-gradient(135deg,#EFF6FF 0%,#F0F7FF 60%,#EBF4FF 100%)',border:'1px solid #BFDBFE',borderRadius:20,padding:'28px 32px',position:'relative',overflow:'hidden'}}>
+              <div style={{position:'absolute',top:-80,right:-80,width:240,height:240,borderRadius:'50%',background:'radial-gradient(circle,rgba(59,130,246,0.08) 0%,transparent 70%)',pointerEvents:'none'}}/>
+              <div style={{position:'absolute',bottom:-40,left:-40,width:160,height:160,borderRadius:'50%',background:'radial-gradient(circle,rgba(99,102,241,0.05) 0%,transparent 70%)',pointerEvents:'none'}}/>
               <div style={{display:'flex',justifyContent:'space-between',alignItems:'flex-start',flexWrap:'wrap',gap:12,marginBottom:currentP?26:0,position:'relative'}}>
                 <div>
-                  <div style={{fontSize:10,fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#3B82F6',marginBottom:8}}>Current Pay Period</div>
-                  <div style={{fontSize:26,fontWeight:700,color:'#F1F5F9',letterSpacing:'-0.02em'}}>{currentP?(currentP.label||`${currentP.start_date} → ${currentP.end_date}`):'No active period'}</div>
-                  {currentP&&<div style={{fontSize:12,color:'#475569',marginTop:4}}>Day {currentP.daysPassed} of {currentP.days}</div>}
+                  <div style={{fontSize:10,fontWeight:700,letterSpacing:'0.12em',textTransform:'uppercase',color:'#2563EB',marginBottom:8}}>Current Pay Period</div>
+                  <div style={{fontSize:26,fontWeight:700,color:'#1E3A8A',letterSpacing:'-0.02em'}}>{currentP?(currentP.label||`${currentP.start_date} → ${currentP.end_date}`):'No active period'}</div>
+                  {currentP&&<div style={{fontSize:12,color:'#60A5FA',marginTop:4}}>Day {currentP.daysPassed} of {currentP.days}</div>}
                 </div>
                 <div style={{display:'flex',gap:8}}>
-                  {currentP&&<button className="btn-g" style={{borderColor:'rgba(255,255,255,0.12)',color:'#94A3B8'}} onClick={()=>{setEditPeriod(currentP);setPForm({label:currentP.label||'',start_date:currentP.start_date,end_date:currentP.end_date,budget_amount:String(currentP.budget_amount)});setShowModal(true);}}>Edit</button>}
+                  {currentP&&<button className="btn-g" style={{borderColor:'#BFDBFE',color:'#3B82F6',background:'rgba(255,255,255,0.7)'}} onClick={()=>{setEditPeriod(currentP);setPForm({label:currentP.label||'',start_date:currentP.start_date,end_date:currentP.end_date,budget_amount:String(currentP.budget_amount)});setShowModal(true);}}>Edit</button>}
                   <button className="btn-p" onClick={()=>{setEditPeriod(null);setPForm({label:'',start_date:'',end_date:'',budget_amount:''});setShowModal(true);}}>+ New Period</button>
                 </div>
               </div>
               {currentP&&(
                 <>
                   <div style={{display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:24,marginBottom:22,position:'relative'}}>
-                    {[['Budget',currentP.budget,'#60A5FA'],['BofA',currentP.bofaSpend,'#FCD34D'],['AMEX',currentP.amexSpend,'#A78BFA'],['Total Spent',currentP.total,'#F87171'],[currentP.saved>=0?'Saved':'Over',Math.abs(currentP.saved),currentP.saved>=0?'#34D399':'#F87171']].map(([l,v,c])=>(
+                    {[['Budget',currentP.budget,'#2563EB'],['BofA',currentP.bofaSpend,'#D97706'],['AMEX',currentP.amexSpend,'#7C3AED'],['Total Spent',currentP.total,'#DC2626'],[currentP.saved>=0?'Saved':'Over',Math.abs(currentP.saved),currentP.saved>=0?'#059669':'#DC2626']].map(([l,v,c])=>(
                       <div key={l}>
-                        <div style={{fontSize:10,color:'#475569',textTransform:'uppercase',letterSpacing:'0.06em',marginBottom:7}}>{l}</div>
+                        <div style={{fontSize:10,color:'#6B93C9',textTransform:'uppercase',letterSpacing:'0.06em',marginBottom:7}}>{l}</div>
                         <div className="mono" style={{fontSize:22,fontWeight:500,color:c}}>{fmt(v)}</div>
                       </div>
                     ))}
                   </div>
                   <div style={{position:'relative'}}>
-                    <div style={{display:'flex',justifyContent:'space-between',fontSize:11,color:'#475569',marginBottom:6}}>
+                    <div style={{display:'flex',justifyContent:'space-between',fontSize:11,color:'#6B93C9',marginBottom:6}}>
                       <span>{currentP.budget>0?Math.round(currentP.total/currentP.budget*100):0}% used</span>
                       <span>{currentP.days-currentP.daysPassed} days remaining</span>
                     </div>
@@ -455,41 +455,41 @@ export default function App() {
                           <Pie data={catData} cx="50%" cy="50%" outerRadius={72} innerRadius={42} dataKey="value" strokeWidth={0} onClick={d=>setDrillCat(prev=>prev===d.name?null:d.name)}>
                             {catData.map(d=><Cell key={d.name} fill={CAT_COLOR[d.name]||'#94A3B8'} opacity={drillCat&&drillCat!==d.name?0.18:1}/>)}
                           </Pie>
-                          <Tooltip formatter={v=>[fmt(v),'Spend']} contentStyle={{background:'#0C1525',border:'1px solid rgba(255,255,255,0.09)',borderRadius:8,fontSize:12,color:'#E2E8F0'}}/>
+                          <Tooltip formatter={v=>[fmt(v),'Spend']} contentStyle={{background:'#fff',border:'1px solid #E2E8F0',borderRadius:8,fontSize:12,color:'#1E293B',boxShadow:'0 4px 12px rgba(0,0,0,0.08)'}}/>
                         </PieChart>
                       </ResponsiveContainer>
                     </div>
                     <div style={{flex:1,display:'flex',flexDirection:'column',gap:4,maxHeight:175,overflowY:'auto'}}>
                       {catData.map(d=>(
-                        <div key={d.name} onClick={()=>setDrillCat(prev=>prev===d.name?null:d.name)} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'6px 9px',borderRadius:8,cursor:'pointer',background:drillCat===d.name?'rgba(255,255,255,0.05)':'transparent',opacity:drillCat&&drillCat!==d.name?0.25:1,transition:'all 0.15s'}}>
-                          <span style={{display:'flex',alignItems:'center',gap:7,fontSize:13,color:'#CBD5E1'}}>
+                        <div key={d.name} onClick={()=>setDrillCat(prev=>prev===d.name?null:d.name)} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'6px 9px',borderRadius:8,cursor:'pointer',background:drillCat===d.name?'#EFF6FF':'transparent',opacity:drillCat&&drillCat!==d.name?0.25:1,transition:'all 0.15s'}}>
+                          <span style={{display:'flex',alignItems:'center',gap:7,fontSize:13,color:'#475569'}}>
                             <span style={{width:7,height:7,borderRadius:'50%',background:CAT_COLOR[d.name]||'#94A3B8',flexShrink:0}}/>{d.name}
                           </span>
                           <div style={{display:'flex',alignItems:'center',gap:8}}>
-                            <span className="mono" style={{fontSize:12,color:'#E2E8F0'}}>{fmt(d.value)}</span>
-                            <span className="mono" style={{fontSize:10,color:'#334155',width:28,textAlign:'right'}}>{totalFilt>0?Math.round(d.value/totalFilt*100):0}%</span>
+                            <span className="mono" style={{fontSize:12,color:'#1E293B'}}>{fmt(d.value)}</span>
+                            <span className="mono" style={{fontSize:10,color:'#94A3B8',width:28,textAlign:'right'}}>{totalFilt>0?Math.round(d.value/totalFilt*100):0}%</span>
                           </div>
                         </div>
                       ))}
                     </div>
                   </div>
-                ):<div style={{color:'#334155',fontSize:13,textAlign:'center',padding:'20px 0'}}>No data for selected range</div>}
+                ):<div style={{color:'#94A3B8',fontSize:13,textAlign:'center',padding:'20px 0'}}>No data for selected range</div>}
                 {drillCat&&<button className="btn-g" onClick={()=>setDrillCat(null)} style={{width:'100%',marginTop:10,fontSize:12}}>✕ Clear: {drillCat}</button>}
               </div>
 
               <div className="card" style={{padding:'24px 28px'}}>
                 <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',marginBottom:14}}>
                   <div className="sec-title" style={{margin:0}}>Recurring</div>
-                  <span className="mono" style={{fontSize:12,color:'#A78BFA'}}>{fmt(recurring.reduce((s,t)=>s+t.amount,0))}</span>
+                  <span className="mono" style={{fontSize:12,color:'#7C3AED'}}>{fmt(recurring.reduce((s,t)=>s+t.amount,0))}</span>
                 </div>
                 <div style={{display:'flex',flexDirection:'column',gap:6,maxHeight:210,overflowY:'auto'}}>
-                  {recurring.length===0?<div style={{color:'#334155',fontSize:13,textAlign:'center',padding:'20px 0'}}>None detected</div>:recurring.map(t=>(
-                    <div key={t.id} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'8px 12px',borderRadius:10,background:'rgba(167,139,250,0.05)',border:'1px solid rgba(167,139,250,0.1)'}}>
+                  {recurring.length===0?<div style={{color:'#94A3B8',fontSize:13,textAlign:'center',padding:'20px 0'}}>None detected</div>:recurring.map(t=>(
+                    <div key={t.id} style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'8px 12px',borderRadius:10,background:'#F5F3FF',border:'1px solid #DDD6FE'}}>
                       <div>
-                        <div style={{fontSize:13,color:'#C4B5FD',fontWeight:500}}>{t.merchant}</div>
-                        <div className="mono" style={{fontSize:10,color:'#5B4FC4'}}>{t.date}</div>
+                        <div style={{fontSize:13,color:'#6D28D9',fontWeight:500}}>{t.merchant}</div>
+                        <div className="mono" style={{fontSize:10,color:'#A78BFA'}}>{t.date}</div>
                       </div>
-                      <span className="mono" style={{fontSize:13,color:'#C4B5FD'}}>{fmt(t.amount)}</span>
+                      <span className="mono" style={{fontSize:13,color:'#6D28D9'}}>{fmt(t.amount)}</span>
                     </div>
                   ))}
                 </div>
@@ -502,24 +502,24 @@ export default function App() {
                 <div className="sec-title" style={{margin:0}}>Period History</div>
                 <button className="btn-p" onClick={()=>{setEditPeriod(null);setPForm({label:'',start_date:'',end_date:'',budget_amount:''});setShowModal(true);}}>+ New Period</button>
               </div>
-              {enriched.length===0?<div style={{color:'#334155',fontSize:13,textAlign:'center',padding:'32px 0'}}>No periods yet. Create your first.</div>:(
+              {enriched.length===0?<div style={{color:'#94A3B8',fontSize:13,textAlign:'center',padding:'32px 0'}}>No periods yet. Create your first.</div>:(
                 <div style={{overflowX:'auto'}}>
                   <div style={{minWidth:820}}>
                     <div style={{display:'grid',gridTemplateColumns:'1fr 100px 110px 110px 110px 120px 80px 120px',padding:'0 14px',marginBottom:6}}>
-                      {['Period','Budget','BofA','AMEX','Total','Saved/Over','Rate',''].map(h=><div key={h} style={{fontSize:10,fontWeight:700,color:'#334155',letterSpacing:'0.08em',textTransform:'uppercase',padding:'5px 8px'}}>{h}</div>)}
+                      {['Period','Budget','BofA','AMEX','Total','Saved/Over','Rate',''].map(h=><div key={h} style={{fontSize:10,fontWeight:700,color:'#94A3B8',letterSpacing:'0.08em',textTransform:'uppercase',padding:'5px 8px'}}>{h}</div>)}
                     </div>
                     {enriched.map(p=>(
-                      <div key={p.id} style={{display:'grid',gridTemplateColumns:'1fr 100px 110px 110px 110px 120px 80px 120px',padding:'3px 0',borderRadius:12,background:p.isCurrent?'rgba(59,130,246,0.05)':'transparent',border:p.isCurrent?'1px solid rgba(59,130,246,0.1)':'1px solid transparent',marginBottom:4}}>
+                      <div key={p.id} style={{display:'grid',gridTemplateColumns:'1fr 100px 110px 110px 110px 120px 80px 120px',padding:'3px 0',borderRadius:12,background:p.isCurrent?'#EFF6FF':'transparent',border:p.isCurrent?'1px solid #BFDBFE':'1px solid transparent',marginBottom:4}}>
                         <div style={{padding:'10px 22px',display:'flex',alignItems:'center',gap:8}}>
-                          <span style={{fontSize:13,fontWeight:p.isCurrent?700:400,color:p.isCurrent?'#93C5FD':'#94A3B8'}}>{p.label||`${p.start_date} → ${p.end_date}`}</span>
-                          {p.isCurrent&&<span style={{display:'inline-block',padding:'1px 7px',borderRadius:99,fontSize:9,fontWeight:800,letterSpacing:'0.08em',textTransform:'uppercase',background:'rgba(59,130,246,0.15)',color:'#60A5FA'}}>NOW</span>}
+                          <span style={{fontSize:13,fontWeight:p.isCurrent?700:400,color:p.isCurrent?'#1D4ED8':'#475569'}}>{p.label||`${p.start_date} → ${p.end_date}`}</span>
+                          {p.isCurrent&&<span style={{display:'inline-block',padding:'1px 7px',borderRadius:99,fontSize:9,fontWeight:800,letterSpacing:'0.08em',textTransform:'uppercase',background:'#DBEAFE',color:'#2563EB'}}>NOW</span>}
                         </div>
-                        {[[p.budget,'#64748B'],[p.bofaSpend,'#FCD34D'],[p.amexSpend,'#A78BFA'],[p.total,'#E2E8F0']].map(([v,c],i)=>(
+                        {[[p.budget,'#64748B'],[p.bofaSpend,'#D97706'],[p.amexSpend,'#7C3AED'],[p.total,'#1E293B']].map(([v,c],i)=>(
                           <div key={i} style={{padding:'10px 8px',display:'flex',alignItems:'center'}}><span className="mono" style={{fontSize:13,color:c}}>{fmt(v)}</span></div>
                         ))}
-                        <div style={{padding:'10px 8px',display:'flex',alignItems:'center'}}><span className="mono" style={{fontSize:13,fontWeight:600,color:p.saved>=0?'#34D399':'#F87171'}}>{p.saved>=0?'+':''}{fmt(p.saved)}</span></div>
+                        <div style={{padding:'10px 8px',display:'flex',alignItems:'center'}}><span className="mono" style={{fontSize:13,fontWeight:600,color:p.saved>=0?'#059669':'#DC2626'}}>{p.saved>=0?'+':''}{fmt(p.saved)}</span></div>
                         <div style={{padding:'10px 8px',display:'flex',alignItems:'center',gap:5}}>
-                          <span className="mono" style={{color:p.saved>=0?'#34D399':'#F87171',fontSize:13}}>{p.budget>0?`${Math.abs(Math.round((1-p.total/p.budget)*100))}%`:'—'}</span>
+                          <span className="mono" style={{color:p.saved>=0?'#059669':'#DC2626',fontSize:13}}>{p.budget>0?`${Math.abs(Math.round((1-p.total/p.budget)*100))}%`:'—'}</span>
                           <span>{p.saved>=0?'✅':'❌'}</span>
                         </div>
                         <div style={{padding:'10px 8px',display:'flex',alignItems:'center',gap:6}}>
@@ -540,8 +540,8 @@ export default function App() {
                 {enriched.map(p=>(
                   <div key={p.id} style={{marginBottom:14}}>
                     <div style={{display:'flex',justifyContent:'space-between',fontSize:13,marginBottom:6}}>
-                      <span style={{color:'#64748B'}}>{p.label||`${p.start_date} → ${p.end_date}`}</span>
-                      <span className="mono" style={{fontSize:12,color:p.saved>=0?'#34D399':'#F87171'}}>{p.saved>=0?'↑ ':' ↓ '}{fmt(Math.abs(p.saved))}</span>
+                      <span style={{color:'#475569'}}>{p.label||`${p.start_date} → ${p.end_date}`}</span>
+                      <span className="mono" style={{fontSize:12,color:p.saved>=0?'#059669':'#DC2626'}}>{p.saved>=0?'↑ ':' ↓ '}{fmt(Math.abs(p.saved))}</span>
                     </div>
                     <PBar value={p.total} max={p.budget} color="#60A5FA"/>
                   </div>
@@ -571,11 +571,11 @@ export default function App() {
                         <div style={{display:'flex',justifyContent:'space-between',fontSize:13,marginBottom:6}}>
                           <div style={{display:'flex',alignItems:'center',gap:8}}>
                             <span style={{width:7,height:7,borderRadius:'50%',background:CAT_COLOR[b.category]||'#94A3B8'}}/>
-                            <span style={{color:'#CBD5E1',fontWeight:500}}>{b.category}</span>
+                            <span style={{color:'#1E293B',fontWeight:500}}>{b.category}</span>
                           </div>
                           <div style={{display:'flex',alignItems:'center',gap:10}}>
                             <span className="mono" style={{fontSize:12,color:col}}>{fmt(spent)}</span>
-                            <span className="mono" style={{color:'#334155',fontSize:12}}>/ {fmt(b.amount)}</span>
+                            <span className="mono" style={{color:'#94A3B8',fontSize:12}}>/ {fmt(b.amount)}</span>
                             <button className="btn-d" style={{padding:'2px 8px',fontSize:11}} onClick={()=>delCatB(b.category)}>✕</button>
                           </div>
                         </div>
@@ -590,7 +590,7 @@ export default function App() {
             {/* Tx filters */}
             <div style={{display:'flex',gap:8,flexWrap:'wrap',alignItems:'center'}}>
               <div style={{position:'relative',flex:1,minWidth:220}}>
-                <span style={{position:'absolute',left:12,top:'50%',transform:'translateY(-50%)',color:'#334155',fontSize:13,pointerEvents:'none'}}>🔍</span>
+                <span style={{position:'absolute',left:12,top:'50%',transform:'translateY(-50%)',color:'#94A3B8',fontSize:13,pointerEvents:'none'}}>🔍</span>
                 <input className="inp" placeholder="Search merchant or note…" value={search} onChange={e=>{setSearch(e.target.value);setPage(1);}} style={{width:'100%',paddingLeft:34}}/>
               </div>
               <select className="inp" value={fCat} onChange={e=>{setFCat(e.target.value);setPage(1);}}>
@@ -602,12 +602,12 @@ export default function App() {
                 <option>Amex</option><option>BofA</option>
               </select>
               {(search||fCat!=='All'||fMethod!=='All'||drillCat)&&<button className="btn-g" onClick={()=>{setSearch('');setFCat('All');setFMethod('All');setDrillCat(null);setPage(1);}}>✕ Clear all</button>}
-              <span className="mono" style={{fontSize:11,color:'#334155',marginLeft:'auto'}}>{sorted.length} txns · {fmt(totalSpend)}</span>
+              <span className="mono" style={{fontSize:11,color:'#94A3B8',marginLeft:'auto'}}>{sorted.length} txns · {fmt(totalSpend)}</span>
             </div>
 
             {drillCat&&(
-              <div style={{display:'flex',alignItems:'center',gap:10,padding:'8px 16px',background:'rgba(96,165,250,0.05)',border:'1px solid rgba(96,165,250,0.13)',borderRadius:10}}>
-                <span style={{fontSize:13,color:'#60A5FA'}}>Category: <strong>{drillCat}</strong></span>
+              <div style={{display:'flex',alignItems:'center',gap:10,padding:'8px 16px',background:'#EFF6FF',border:'1px solid #BFDBFE',borderRadius:10}}>
+                <span style={{fontSize:13,color:'#2563EB'}}>Category: <strong>{drillCat}</strong></span>
                 <button className="btn-g" onClick={()=>setDrillCat(null)} style={{padding:'3px 9px',fontSize:11}}>✕</button>
               </div>
             )}
@@ -623,30 +623,30 @@ export default function App() {
                   ))}
                 </div>
                 {paged.length===0?(
-                  <div style={{padding:'40px 20px',textAlign:'center',color:'#334155',fontSize:13}}>No transactions match your filters</div>
+                  <div style={{padding:'40px 20px',textAlign:'center',color:'#64748B',fontSize:13}}>No transactions match your filters</div>
                 ):paged.map(t=>{
                   const amt=t.amount;
                   const bg=isRecur(t)?'rgba(167,139,250,0.035)':amt>=80?'rgba(239,68,68,0.035)':amt>=40?'rgba(251,191,36,0.025)':'transparent';
-                  const ac=amt>=80?'#F87171':amt>=40?'#FBBF24':'#E2E8F0';
+                  const ac=amt>=80?'#DC2626':amt>=40?'#D97706':'#1E293B';
                   return(
                     <div key={t.id} className="tx-grid tx-row" style={{background:bg}}>
-                      <div style={{color:'#334155',fontSize:11,fontFamily:"'DM Mono',monospace"}}>{t.date}</div>
-                      <div style={{color:'#CBD5E1',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>
-                        {t.merchant}{isRecur(t)&&<span style={{marginLeft:6,fontSize:10,color:'#A78BFA'}}>↻</span>}
+                      <div style={{color:'#94A3B8',fontSize:11,fontFamily:"'DM Mono',monospace"}}>{t.date}</div>
+                      <div style={{color:'#1E293B',fontWeight:500,overflow:'hidden',textOverflow:'ellipsis',whiteSpace:'nowrap'}}>
+                        {t.merchant}{isRecur(t)&&<span style={{marginLeft:6,fontSize:10,color:'#7C3AED'}}>↻</span>}
                       </div>
                       <div style={{fontFamily:"'DM Mono',monospace",fontWeight:600,color:ac}}>{fmt(amt)}</div>
                       <div><MB method={t.method}/></div>
                       <div><CB cat={t.category}/></div>
-                      <div style={{fontSize:11,color:'#475569'}}>{t.subCat}</div>
+                      <div style={{fontSize:11,color:'#94A3B8'}}>{t.subCat}</div>
                       <div><NoteCell txId={t.id} note={notes[t.id]||''} onSave={saveNote}/></div>
                     </div>
                   );
                 })}
               </div>
               {totalPages>1&&(
-                <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:12,padding:'14px 20px',borderTop:'1px solid rgba(255,255,255,0.05)'}}>
+                <div style={{display:'flex',justifyContent:'center',alignItems:'center',gap:12,padding:'14px 20px',borderTop:'1px solid #F1F5F9'}}>
                   <button className="btn-g" onClick={()=>setPage(p=>Math.max(1,p-1))} disabled={page===1}>← Prev</button>
-                  <span className="mono" style={{fontSize:12,color:'#334155'}}>Page {page} / {totalPages}</span>
+                  <span className="mono" style={{fontSize:12,color:'#94A3B8'}}>Page {page} / {totalPages}</span>
                   <button className="btn-g" onClick={()=>setPage(p=>Math.min(totalPages,p+1))} disabled={page===totalPages}>Next →</button>
                 </div>
               )}
@@ -659,22 +659,22 @@ export default function App() {
       {showModal&&(
         <div className="modal-bg" onClick={e=>{if(e.target===e.currentTarget){setShowModal(false);setEditPeriod(null);}}}>
           <div className="modal anim">
-            <div style={{fontSize:17,fontWeight:700,color:'#F1F5F9',marginBottom:22,letterSpacing:'-0.01em'}}>{editPeriod?'Edit Pay Period':'New Pay Period'}</div>
+            <div style={{fontSize:17,fontWeight:700,color:'#1E293B',marginBottom:22,letterSpacing:'-0.01em'}}>{editPeriod?'Edit Pay Period':'New Pay Period'}</div>
             <div style={{display:'flex',flexDirection:'column',gap:14}}>
               <div>
-                <label style={{fontSize:10,color:'#475569',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>Label (optional)</label>
+                <label style={{fontSize:10,color:'#94A3B8',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>Label (optional)</label>
                 <input className="inp" value={pForm.label} onChange={e=>setPForm(f=>({...f,label:e.target.value}))} placeholder="e.g. Apr 15 – Apr 30" style={{width:'100%'}}/>
               </div>
               <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:12}}>
                 {[['Start Date','start_date'],['End Date','end_date']].map(([l,k])=>(
                   <div key={k}>
-                    <label style={{fontSize:10,color:'#475569',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>{l}</label>
+                    <label style={{fontSize:10,color:'#94A3B8',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>{l}</label>
                     <input type="date" className="inp" value={pForm[k]} onChange={e=>setPForm(f=>({...f,[k]:e.target.value}))} style={{width:'100%'}}/>
                   </div>
                 ))}
               </div>
               <div>
-                <label style={{fontSize:10,color:'#475569',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>Budget Amount</label>
+                <label style={{fontSize:10,color:'#94A3B8',display:'block',marginBottom:6,fontWeight:700,textTransform:'uppercase',letterSpacing:'0.07em'}}>Budget Amount</label>
                 <input type="number" className="inp" value={pForm.budget_amount} onChange={e=>setPForm(f=>({...f,budget_amount:e.target.value}))} placeholder="e.g. 3200" style={{width:'100%'}}/>
               </div>
             </div>
