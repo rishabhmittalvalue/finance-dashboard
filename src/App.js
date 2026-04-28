@@ -702,7 +702,7 @@ export default function App() {
                   <div style={{fontSize:20,fontWeight:600}}>{currentPeriod.label||`${currentPeriod.start_date} → ${currentPeriod.end_date}`}</div>
                   <div style={{fontSize:13,opacity:0.75,marginTop:2}}>Day {currentPeriod.daysPassed} of {currentPeriod.days}</div>
                 </div>
-                <div style={{display:'flex',gap:8'}}>
+                <div style={{display:'flex',gap:8}}>
                   <button onClick={()=>{setPeriodForm({label:currentPeriod.label||'',start_date:currentPeriod.start_date,end_date:currentPeriod.end_date,budget_amount:String(currentPeriod.budget_amount)});setEditingPeriodId(currentPeriod.id);setShowPeriodForm(true);}}
                     style={{fontSize:12,background:'rgba(255,255,255,0.2)',color:'#fff',border:'0.5px solid rgba(255,255,255,0.4)',borderRadius:8,padding:'5px 12px',cursor:'pointer'}}>
                     Edit period
